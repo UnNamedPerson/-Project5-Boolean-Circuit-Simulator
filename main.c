@@ -102,16 +102,24 @@ static Circuit* Circuite_OneBitAdder(){
 
 }
 
-static void testing_OneBitAdder(){
-    
-    
+static void testing_OneBitAdder(Circuit* circuit, bool in0, bool in1, bool in2){
+    Circuit_setInput(circuit, 0, in0);
+    Circuit_setInput(circuit, 1, in1);
+    Circuit_setInput(circuit, 2, in2);
+    Circuit_update(circuit);
 }
 
 
 int main(int argc, char **argv) {
-	Circuit* c = Circuits_and3();
-	printf("Some input(s) false: should be false\n");
-	test3In1Out(c, true, true, false);
-	printf("All inputs true: should be true\n");
-	test3In1Out(c, true, true, true);
+//    Circuit* c = Circuits_and3();
+//    printf("Some input(s) false: should be false\n");
+//    test3In1Out(c, true, true, false);
+//    printf("All inputs true: should be true\n");
+//    test3In1Out(c, true, true, true);
+    
+    printf("Testing the ObeBitAdder \n");
+    Circuit* OBA = Circuite_OneBitAdder();
+    testing_OneBitAdder(OBA, true, true, false);
+    testing_OneBitAdder(OBA, true, false, false);
+
 }
